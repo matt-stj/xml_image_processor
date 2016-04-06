@@ -12,10 +12,6 @@ class BatchProcessor
   def start
     repository_of_works = WorksLoader.load_from_api(api_source)
 
-    Dir.mkdir "#{output_directory}/output"
-    Dir.mkdir "#{output_directory}/output/makes"
-    Dir.mkdir "#{output_directory}/output/models"
-
     renderer = HtmlRenderer.new(repository_of_works, output_directory).build
   end
 

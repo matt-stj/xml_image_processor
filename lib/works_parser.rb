@@ -10,11 +10,19 @@ class WorksParser
     repo_data = []
     xml_doc.xpath("//work").each do |work|
       thumbnail_url = work.xpath("urls").at_xpath("url").text
+
       make = work.xpath("exif//make").text
+      make = "Unspecified" if make == ""
+
       model = work.xpath("exif//model").text
+      model = "Unspecified" if model == ""
+
       repo_data << Work.new(thumbnail_url, make, model)
     end
     works_repo = WorksRepository.new(repo_data)
   end
+
+  private
+
 
 end
