@@ -4,6 +4,7 @@ require 'minitest/spec'
 require 'fileutils'
 require 'pry'
 
+
 class BatchProcessorTest < Minitest::Test
   attr_reader :batch_processor
 
@@ -17,16 +18,17 @@ class BatchProcessorTest < Minitest::Test
     assert_equal batch_processor.output_directory, path
   end
 
-  def test_batch_processor_will_output_files_to_correct_output_directory_when_it_is_run
-    FileUtils.rm_rf((path + "/output")) if File.directory?((path + "/output"))
-      
+  def test_batch_processor_will_output_files_to_correct_output_directory
     batch_processor = BatchProcessor.new(api_url, path)
-    batch_processor.start
 
+    refute directory_exists?((path + "/output"))
+    batch_processor.start
+    assert directory_exists?((path + "/output"))
   end
 
-  private
+  MiniTest::Unit.after_tests { FileUtils.rm_rf((File.expand_path File.dirname(__FILE__) + "/output")) if File.directory?((File.expand_path File.dirname(__FILE__) + "/output")) }
 
+  private
   def directory_exists?(directory)
     File.directory?(directory)
   end
