@@ -7,7 +7,6 @@ class WorksLoader
 
   def self.load_from_api(api_url)
     doc = Nokogiri::XML(open(api_url))
-    WorksParser.parse(doc)
   end
 
 end

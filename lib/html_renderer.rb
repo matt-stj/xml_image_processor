@@ -37,7 +37,7 @@ def build_index
   html = title + "<br>" + "<ul>" + navigation + "</ul>" + "<br>" + thumbnails
   output = "#{output_directory}/output/index.html"
   File.write(output, html)
-  puts "wrote index.html to #{output}"
+  puts "wrote index.html to #{output}/output"
 end
 
 def build_makes_pages
@@ -57,7 +57,7 @@ def build_makes_pages
 
     html = title + "<br>" + "<ul>" + nav + "</ul>" + "<br>" + thumbnails
     File.write("#{output_directory}/output/makes/#{make.downcase.gsub(' ', '-')}.html", html)
-    puts "wrote makes files to to #{output_directory}"
+    puts "wrote makes: #{make} to to #{output_directory}/output/makes"
 
   end
 
@@ -75,7 +75,7 @@ def build_models_pages
       end.join
       html = title + "<br>" + nav + "<br>" + thumbnails
       File.write("#{output_directory}/output/models/#{model.downcase.gsub(' ', '-')}.html", html)
-      puts "wrote models files to to #{output_directory}"
+      puts "wrote models: #{model} to #{output_directory}/output/models"
     end
   end
 
