@@ -2,8 +2,6 @@ require_relative 'work'
 require_relative 'works_repository'
 require_relative 'html_renderer'
 
-require 'pry'
-
 class WorksParser
 
   def self.parse(xml_doc)
@@ -21,8 +19,5 @@ class WorksParser
     end
     works_repo = WorksRepository.new(repo_data)
   end
-
-  private
-
 
 end

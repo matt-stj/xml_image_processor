@@ -13,7 +13,7 @@ class BatchProcessorTest < Minitest::Test
   end
 
   def test_api_url_must_return_xml_datatype
-    assert_raises InputError do
+    assert_raises RuntimeError do
       BatchProcessor.new("hi.json", path).start
     end
   end

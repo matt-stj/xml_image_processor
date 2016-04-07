@@ -1,9 +1,5 @@
 require_relative '../lib/works_loader'
-require_relative '../lib/works_parser'
 require 'minitest/autorun'
-require 'minitest/spec'
-require 'fileutils'
-require 'pry'
 
 
 class WorksLoaderTest < Minitest::Test

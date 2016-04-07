@@ -37,7 +37,7 @@ def build_index
   html = title + "<br>" + "<ul>" + navigation + "</ul>" + "<br>" + thumbnails
   output = "#{output_directory}/output/index.html"
   File.write(output, html)
-  puts "wrote index.html to #{output}/output"
+  puts "wrote index.html to #{output}"
 end
 
 def build_makes_pages
@@ -58,14 +58,11 @@ def build_makes_pages
     html = title + "<br>" + "<ul>" + nav + "</ul>" + "<br>" + thumbnails
     File.write("#{output_directory}/output/makes/#{make.downcase.gsub(' ', '-')}.html", html)
     puts "wrote makes: #{make} to to #{output_directory}/output/makes"
-
   end
-
 end
 
 
 def build_models_pages
-
   repo_data.makes.map do |make, models|
     models.map do |model, works|
       title = "<h1>Make: #{make}  >>  Model: #{model}</h1>"

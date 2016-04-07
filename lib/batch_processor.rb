@@ -1,5 +1,4 @@
 require_relative 'works_loader'
-require_relative 'errors'
 require 'pry'
 
 class BatchProcessor
@@ -22,7 +21,7 @@ class BatchProcessor
   def correct_datatype?(api_source)
     begin
       if api_source[-4..-1] != ".xml"
-        raise InputError
+        raise
       end
       rescue => ex
         print "api endpoint must return '.xml' data \n #{ex.backtrace.join("\n")}: #{ex.message} (#{ex.class})"
