@@ -1,13 +1,13 @@
 class WorksRepository
-  attr_reader :works, :makes, :models
+  attr_reader :works, :makes_and_models, :models
 
   def initialize(repo_data)
     @works = repo_data
-    @makes = self.works.group_by {|work| work.make}
+    @makes_and_models = self.works.group_by {|work| work.make}
     @models = self.works.group_by {|work| work.model}
 
-    makes.map do |make, works|
-      makes[make] = works.group_by {|work| work.model}
+    makes_and_models.map do |make, works|
+      makes_and_models[make] = works.group_by {|work| work.model}
     end
   end
 

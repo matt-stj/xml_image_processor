@@ -25,8 +25,7 @@ end
 
 def build_index
   title = "<h1>Index</h1>"
-
-  navigation = repo_data.makes.keys.map do |make|
+  navigation = repo_data.makes_and_models.keys.sort.map do |make|
     "<li><a href='#{output_directory}/output/makes/#{make.downcase.gsub(' ', '-')}.html'>" + make + "</a></li>"
   end.join("")
 
@@ -47,7 +46,7 @@ def build_makes_pages
 
     models = works.map {|work| work.model}.uniq
 
-    nav = models.map do |model|
+    nav = models.sort.map do |model|
       "<li><a href='#{output_directory}/output/models/#{model.downcase.gsub(' ', '-')}.html'>" + model + "</a></li>"
     end.join("")
 
@@ -63,7 +62,7 @@ end
 
 
 def build_models_pages
-  repo_data.makes.map do |make, models|
+  repo_data.makes_and_models.map do |make, models|
     models.map do |model, works|
       title = "<h1>Make: #{make}  >>  Model: #{model}</h1>"
       nav =         "<a href='#{output_directory}/output/makes/#{make.downcase.gsub(' ', '-')}.html'>" + make + "</a>"

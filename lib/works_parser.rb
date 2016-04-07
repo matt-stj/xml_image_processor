@@ -5,7 +5,7 @@ require_relative 'html_renderer'
 class WorksParser
 
   def self.parse(xml_doc)
-    repo_data = []
+    all_works = []
     xml_doc.xpath("//work").each do |work|
       thumbnail_url = work.xpath("urls").at_xpath("url").text
 
@@ -15,9 +15,9 @@ class WorksParser
       model = work.xpath("exif//model").text
       model = "Unspecified" if model == ""
 
-      repo_data << Work.new(thumbnail_url, make, model)
+      all_works << Work.new(thumbnail_url, make, model)
     end
-    repo_data
+    all_works
   end
 
 end
