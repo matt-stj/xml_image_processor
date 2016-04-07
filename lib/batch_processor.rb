@@ -1,5 +1,4 @@
 require_relative 'works_loader'
-require 'pry'
 
 class BatchProcessor
   attr_reader :api_source, :output_directory
@@ -29,8 +28,6 @@ class BatchProcessor
         raise
       end
     end
-
-
   end
 
   this_is_the_program_and_not_the_test = ($PROGRAM_NAME == __FILE__)
