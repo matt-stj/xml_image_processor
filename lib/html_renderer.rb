@@ -72,7 +72,7 @@ def build_models_pages
         "<img src=" + work.thumbnail_url + ">"
       end.join
 
-      nav = nav + + "<li><a href='#{output_directory}/output/index.html'>" + "Index" + "</a></li>"
+      nav = nav + "<li><a href='#{output_directory}/output/index.html'>" + "Index" + "</a></li>"
 
       html = title + "<br>" + nav + "<br>" + thumbnails
       File.write("#{output_directory}/output/models/#{model.downcase.gsub(' ', '-')}.html", html)
