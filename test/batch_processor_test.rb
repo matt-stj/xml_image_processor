@@ -26,10 +26,10 @@ class BatchProcessorTest < Minitest::Test
     assert directory_exists?((path + "/output"))
   end
 
-  MiniTest::Unit.after_tests { FileUtils.rm_rf((File.expand_path File.dirname(__FILE__) + "/output")) if File.directory?((File.expand_path File.dirname(__FILE__) + "/output")) }
+  MiniTest.after_run { FileUtils.rm_rf((File.expand_path File.dirname(__FILE__) + "/output")) if File.directory?((File.expand_path File.dirname(__FILE__) + "/output")) }
 
   private
-  
+
   def directory_exists?(directory)
     File.directory?(directory)
   end
