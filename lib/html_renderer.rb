@@ -48,7 +48,7 @@ def build_makes_pages
 
     nav = models.sort.map do |model|
       "<li><a href='#{output_directory}/output/models/#{model.downcase.gsub(' ', '-')}.html'>" + model + "</a></li>"
-    end.join("")
+    end.join("") + "<li><a href='#{output_directory}/output/index.html'>" + "Index" + "</a></li>"
 
     thumbnails = works.first(10).map do |work|
       "<img src=" + work.thumbnail_url + ">"
@@ -65,10 +65,15 @@ def build_models_pages
   repo_data.makes_and_models.map do |make, models|
     models.map do |model, works|
       title = "<h1>Make: #{make}  >>  Model: #{model}</h1>"
-      nav =         "<a href='#{output_directory}/output/makes/#{make.downcase.gsub(' ', '-')}.html'>" + make + "</a>"
+
+      nav = "<a href='#{output_directory}/output/makes/#{make.downcase.gsub(' ', '-')}.html'>" + make + "</a>"
+
       thumbnails = works.first(10).map do |work|
         "<img src=" + work.thumbnail_url + ">"
       end.join
+
+      nav = nav + + "<li><a href='#{output_directory}/output/index.html'>" + "Index" + "</a></li>"
+
       html = title + "<br>" + nav + "<br>" + thumbnails
       File.write("#{output_directory}/output/models/#{model.downcase.gsub(' ', '-')}.html", html)
       puts "wrote models: #{model} to #{output_directory}/output/models"
