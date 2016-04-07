@@ -14,8 +14,19 @@ class WorksParserTest < MiniTest::Test
     parsed_xml = WorksParser.parse(xml_doc)
 
     assert_equal parsed_xml.class, Array
-    parsed_xml.map do |work|
+    parsed_xml.each do |work|
       assert_equal work.class, Work
+    end
+  end
+
+  def test_if_no_data_is_provided_the_make_or_model_is_stored_as_unspecifed
+    xml_doc = WorksLoader.load_from_api(incomplete_exif_data)
+
+    parsed_xml = WorksParser.parse(xml_doc)
+
+    parsed_xml.each do |work|
+      assert_equal work.make, "Unspecified"
+      assert_equal work.model, "Unspecified"
     end
   end
 
@@ -23,6 +34,10 @@ class WorksParserTest < MiniTest::Test
 
   def xml_fixture
     File.expand_path './fixtures/xml_fixture.xml', __dir__
+  end
+
+  def incomplete_exif_data
+    File.expand_path './fixtures/incomplete_exif_data.xml', __dir__
   end
 
 end

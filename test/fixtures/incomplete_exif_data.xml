@@ -1,0 +1,36 @@
+<works>
+  <work>
+    <id>26583</id>
+    <filename>27112.jpg</filename>
+    <image_width>1109</image_width>
+    <image_height>1104</image_height>
+    <urls>
+      <url type="small">
+        http://ih1.redbubble.net/work.26583.1.flat,135x135,075,f.jpg
+      </url>
+      <url type="medium">
+        http://ih1.redbubble.net/work.26583.1.flat,300x300,075,f.jpg
+      </url>
+      <url type="large">
+        http://ih1.redbubble.net/work.26583.1.flat,550x550,075,f.jpg
+      </url>
+    </urls>
+    <exif>
+      <pixel_y_dimension>1104</pixel_y_dimension>
+      <software>Adobe Photoshop CS2 Windows</software>
+      <date_time>Fri Mar 30 19:11:10 +1000 2007</date_time>
+      <orientation>1</orientation>
+      <color_space>1</color_space>
+      <x_resolution>300</x_resolution>
+      <pixel_x_dimension>1109</pixel_x_dimension>
+      <resolution_unit>2</resolution_unit>
+      <y_resolution>300</y_resolution>
+      <jpeg_interchange_format>302</jpeg_interchange_format>
+      <jpeg_interchange_format_length>4971</jpeg_interchange_format_length>
+      <x_resolution>72</x_resolution>
+      <compression>6</compression>
+      <y_resolution>72</y_resolution>
+      <resolution_unit>2</resolution_unit>
+    </exif>
+  </work>
+</works>
