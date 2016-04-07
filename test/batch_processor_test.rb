@@ -2,7 +2,6 @@ require_relative '../lib/batch_processor'
 require 'minitest/autorun'
 require 'fileutils'
 
-
 class BatchProcessorTest < Minitest::Test
   attr_reader :batch_processor
 
@@ -30,6 +29,7 @@ class BatchProcessorTest < Minitest::Test
   MiniTest::Unit.after_tests { FileUtils.rm_rf((File.expand_path File.dirname(__FILE__) + "/output")) if File.directory?((File.expand_path File.dirname(__FILE__) + "/output")) }
 
   private
+  
   def directory_exists?(directory)
     File.directory?(directory)
   end

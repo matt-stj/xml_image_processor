@@ -11,9 +11,9 @@ This is an image processor that takes exif data from an xml api-endpoint and cre
 
 Download or clone the project files to your machine and open the base directory of the application.  From there you can run the following command that will take two arguments:
 
-`ruby lib/batch_processor.rb xml-image-data output_directory`
+`ruby lib/batch_processor.rb xml-data-source output_directory`
 
-The first argument is the xml image data and the second is the output directory where you'd like your html files to be created.
+The first argument is the xml-data source and the second is the output directory where you'd like your html files to be created.
 
 
 
