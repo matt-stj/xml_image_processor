@@ -9,7 +9,7 @@ This is an image processor that takes exif data from an xml api-endpoint and cre
 
 ## Running the program
 
-Download or clone the project files to your machine and open the base directory of the application.  From there you can run the following command that takes two arguments:
+Download or clone the project files to your machine and optouchen the base directory of the application.  From there you can run the following command that takes two arguments:
 `ruby lib/batch_processor.rb api-endpoint.xml output_directory`
 
 ## Tests
