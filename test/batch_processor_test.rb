@@ -1,8 +1,6 @@
 require_relative '../lib/batch_processor'
 require 'minitest/autorun'
-require 'minitest/spec'
 require 'fileutils'
-require 'pry'
 
 
 class BatchProcessorTest < Minitest::Test
@@ -14,7 +12,7 @@ class BatchProcessorTest < Minitest::Test
 
   def test_api_url_must_return_xml_datatype
     assert_raises RuntimeError do
-      BatchProcessor.new("hi.json", path).start
+      supress_stdout { BatchProcessor.new("hi.json", path).start }
     end
   end
 
@@ -25,7 +23,7 @@ class BatchProcessorTest < Minitest::Test
 
   def test_batch_processor_will_output_files_to_correct_output_directory
     refute directory_exists?((path + "/output"))
-    batch_processor.start
+    supress_stdout { batch_processor.start }
     assert directory_exists?((path + "/output"))
   end
 
@@ -42,6 +40,17 @@ class BatchProcessorTest < Minitest::Test
 
   def api_url
     "http://take-home-test.herokuapp.com/api/v1/works.xml"
+  end
+
+  def supress_stdout(&block)
+    original_stdout = $stdout
+    $stdout = fake = StringIO.new
+    begin
+      yield
+    ensure
+      $stdout = original_stdout
+    end
+    fake.string
   end
 
 end
