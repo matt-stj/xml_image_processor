@@ -12,8 +12,9 @@ class BatchProcessor
   def start
     correct_datatype?(api_source)
     xml_doc = WorksLoader.load_from_api(api_source)
-    repository_of_works = WorksParser.parse(xml_doc)
-    renderer = HtmlRenderer.new(repository_of_works, output_directory).build
+    parsed_xml = WorksParser.parse(xml_doc)
+    repository_of_works = WorksRepository.new(parsed_xml)
+    HtmlRenderer.new(repository_of_works, output_directory).build
   end
 
   private

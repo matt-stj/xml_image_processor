@@ -17,7 +17,7 @@ class WorksParser
 
       repo_data << Work.new(thumbnail_url, make, model)
     end
-    works_repo = WorksRepository.new(repo_data)
+    repo_data
   end
 
 end
